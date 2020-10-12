@@ -1,2 +1,2 @@
-my.java
- my
+ru/stqa/pft/sandbox/my.java
+ ru.stqa.pft.sandbox.my
