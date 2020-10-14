@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.CreateGroupTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-14T15:11:38" hostname="MacBook-Air.local" time="11.9">
+  <properties/>
+  <testcase name="CreateGroupTests" classname="ru.stqa.pft.addressbook.CreateGroupTests" time="11.9"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+1602688299713	geckodriver	INFO	Listening on 127.0.0.1:15172
+1602688300713	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/jv/kl2zvr9s1f7d7nxktb291kt00000gn/T/rust_mozprofilet6LLOq"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602688304948	Marionette	INFO	Listening on port 55528
+1602688304971	Marionette	WARN	TLS certificate errors will be ignored for this session
+окт. 14, 2020 6:11:45 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1602688309122	Marionette	INFO	Stopped listening on port 55528
+]]></system-err>
+</testsuite>
