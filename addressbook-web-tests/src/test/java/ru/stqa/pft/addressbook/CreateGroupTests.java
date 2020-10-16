@@ -50,15 +50,6 @@ public class CreateGroupTests {
     driver = new FirefoxDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
-  }
-
-  @After
-  public void tearDown() {
-    driver.quit();
-  }
-
-  @Test
-  public void CreateGroupTests() {
     driver.get("http://localhost/addressbook/index.php");
     driver.manage().window().setSize(new Dimension(1440, 833));
     driver.findElement(By.name("user")).click();
@@ -68,6 +59,15 @@ public class CreateGroupTests {
     driver.findElement(By.name("pass")).sendKeys("secret");
     driver.findElement(By.cssSelector("input:nth-child(7)")).click();
     driver.findElement(By.cssSelector("body")).click();
+  }
+
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+
+  @Test
+  public void testCreateGroup() {
     driver.findElement(By.linkText("groups")).click();
     driver.findElement(By.name("new")).click();
     driver.findElement(By.name("group_name")).click();
