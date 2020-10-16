@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.CreateGroupTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-16T12:50:32" hostname="MacBook-Air.local" time="11.038">
+<testsuite name="ru.stqa.pft.addressbook.CreateGroupTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-16T15:42:06" hostname="MacBook-Air.local" time="10.256">
   <properties/>
-  <testcase name="testCreateGroup" classname="ru.stqa.pft.addressbook.CreateGroupTests" time="11.038"/>
+  <testcase name="testCreateGroup" classname="ru.stqa.pft.addressbook.CreateGroupTests" time="10.256"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-1602852633769	geckodriver	INFO	Listening on 127.0.0.1:11891
-1602852634519	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/jv/kl2zvr9s1f7d7nxktb291kt00000gn/T/rust_mozprofilenmjUa5"
+1602862927808	geckodriver	INFO	Listening on 127.0.0.1:7807
+1602862928585	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/jv/kl2zvr9s1f7d7nxktb291kt00000gn/T/rust_mozprofilewHOETM"
 console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
-1602852638399	Marionette	INFO	Listening on port 59030
-1602852638523	Marionette	WARN	TLS certificate errors will be ignored for this session
-окт. 16, 2020 3:50:38 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+1602862932354	Marionette	INFO	Listening on port 58086
+1602862932413	Marionette	WARN	TLS certificate errors will be ignored for this session
+окт. 16, 2020 6:42:12 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
-1602852642466	Marionette	INFO	Stopped listening on port 59030
+1602862936097	Marionette	INFO	Stopped listening on port 58086
 ]]></system-err>
 </testsuite>
