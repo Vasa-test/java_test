@@ -14,7 +14,7 @@ public class SessionHelper extends HelperBase {
     setSizeWindow();
     type(By.name("user"),username);
     click(By.id("LoginForm"));
-    type(By.id("LoginForm"),password);
+    type(By.name("pass"),password);
     click(By.cssSelector("input:nth-child(7)"));
     click(By.cssSelector("body"));
   }
