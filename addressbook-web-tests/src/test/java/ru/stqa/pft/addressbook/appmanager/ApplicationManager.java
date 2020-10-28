@@ -2,7 +2,11 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.browser.Browser;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,10 +18,22 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
   JavascriptExecutor js;
   private Map<String, Object> vars;
+  private String browser;
+
+  public ApplicationManager(String browser) {
+
+    this.browser = browser;
+  }
 
   public void init() {
-    System.setProperty("webdriver.gecko.driver","/usr/local/bin/geckodriver");
-    driver = new FirefoxDriver();
+    //System.setProperty("webdriver.gecko.driver","/usr/local/bin/geckodriver");
+    if(browser == BrowserType.FIREFOX){
+      driver = new FirefoxDriver();
+    } else if(browser == BrowserType.CHROME){
+      driver = new ChromeDriver();
+    } else if (browser == BrowserType.EDGE){
+      driver = new EdgeDriver();
+    }
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
     driver.get("http://localhost/addressbook/index.php");
