@@ -4,3 +4,5 @@ ru/stqa/pft/sandbox/my.java
  ru.stqa.pft.sandbox.my
 ru/stqa/pft/sandbox/Square.java
  ru.stqa.pft.sandbox.Square
+ru/stqa/pft/sandbox/Equation.java
+ ru.stqa.pft.sandbox.Equation
