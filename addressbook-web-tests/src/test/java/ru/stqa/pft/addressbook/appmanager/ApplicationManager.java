@@ -27,11 +27,11 @@ public class ApplicationManager {
 
   public void init() {
     //System.setProperty("webdriver.gecko.driver","/usr/local/bin/geckodriver");
-    if(browser == BrowserType.FIREFOX){
+    if(browser.equals(BrowserType.FIREFOX)){
       driver = new FirefoxDriver();
-    } else if(browser == BrowserType.CHROME){
+    } else if(browser.equals(BrowserType.CHROME)){
       driver = new ChromeDriver();
-    } else if (browser == BrowserType.EDGE){
+    } else if (browser.equals(BrowserType.EDGE)){
       driver = new EdgeDriver();
     }
     js = (JavascriptExecutor) driver;
