@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.CreateGroupTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-28T10:29:33" hostname="MacBook-Air.local" time="10.403">
+<testsuite name="ru.stqa.pft.addressbook.tests.CreateGroupTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-29T09:19:26" hostname="MacBook-Air.local" time="9.114">
   <properties/>
-  <testcase name="testCreateGroup" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="10.403"/>
+  <testcase name="testCreateGroup" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="9.114"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Starting MSEdgeDriver 85.0.564.44 (3b106b45f8e7cd4c3e2aac5a6ba411645c16df60) on port 44638
+Starting ChromeDriver 85.0.4183.83 (94abc2237ae0c9a4cb5f035431c8adfb94324633-refs/branch-heads/4183@{#1658}) on port 8311
 Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping MSEdgeDriver safe.
-MSEdgeDriver was started successfully.
-OneAuth Version 1.1.0 (com.microsoft.Edge)
-окт. 28, 2020 12:29:40 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+окт. 29, 2020 11:19:32 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
+окт. 29, 2020 11:19:35 AM org.openqa.selenium.remote.http.WebSocket$Listener onError
+WARNING: Connection reset
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:367)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:398)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
 ]]></system-err>
 </testsuite>
