@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class HelperBase {
   protected WebDriver driver;
@@ -25,6 +26,10 @@ public class HelperBase {
         driver.findElement(locator).sendKeys(text);
       }
     }
+  }
+
+  protected void select(By locator,String text){
+    new Select(driver.findElement(locator)).selectByVisibleText(text);
   }
 
   protected void setSizeWindow() {
