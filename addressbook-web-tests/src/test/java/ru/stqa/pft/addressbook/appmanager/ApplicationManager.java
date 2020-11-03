@@ -10,12 +10,14 @@ import org.openqa.selenium.remote.BrowserType;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
   WebDriver driver;
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
+  private ContactHelper contactHelper;
   JavascriptExecutor js;
   private Map<String, Object> vars;
   private String browser;
@@ -36,10 +38,12 @@ public class ApplicationManager {
     }
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
+    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     driver.get("http://localhost/addressbook/index.php");
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
     sessionHelper = new SessionHelper(driver);
+    contactHelper = new ContactHelper(driver);
     sessionHelper.login("admin", "secret");
   }
 
@@ -54,5 +58,9 @@ public class ApplicationManager {
 
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
+  }
+
+  public ContactHelper getContactHelper() {
+    return contactHelper;
   }
 }
