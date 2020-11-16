@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.CreateGroupTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-13T15:39:33" hostname="MacBook-Air.local" time="9.579">
+<testsuite name="ru.stqa.pft.addressbook.tests.CreateGroupTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-16T10:04:37" hostname="MacBook-Air.local" time="6.897">
   <properties/>
-  <testcase name="testCreateGroup" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="9.579"/>
+  <testcase name="testCreateGroup" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="6.897"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Starting ChromeDriver 85.0.4183.83 (94abc2237ae0c9a4cb5f035431c8adfb94324633-refs/branch-heads/4183@{#1658}) on port 6211
+Starting ChromeDriver 85.0.4183.83 (94abc2237ae0c9a4cb5f035431c8adfb94324633-refs/branch-heads/4183@{#1658}) on port 27661
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-нояб. 13, 2020 5:39:39 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+нояб. 16, 2020 12:04:40 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
-нояб. 13, 2020 5:39:42 PM org.openqa.selenium.remote.http.WebSocket$Listener onError
+нояб. 16, 2020 12:04:44 PM org.openqa.selenium.remote.http.WebSocket$Listener onError
 WARNING: Connection reset
 java.net.SocketException: Connection reset
 	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:367)
