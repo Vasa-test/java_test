@@ -1,7 +1,8 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.Comparator;
@@ -14,7 +15,7 @@ public class CreateGroupTests extends TestBase {
   public void testCreateGroup() {
     app.getNavigationHelper().gotoGroup();
     List<GroupData> before = app.getGroupHelper().getGroupList();
-    GroupData group = new GroupData("test12", null, null);
+    GroupData group = new GroupData("test22", null, null);
     app.getGroupHelper().createGroup(group);
     List<GroupData> after = app.getGroupHelper().getGroupList();
     Assert.assertEquals(after.size(),before.size() +1);
