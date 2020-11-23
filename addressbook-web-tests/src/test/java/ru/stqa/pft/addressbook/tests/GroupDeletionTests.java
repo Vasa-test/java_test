@@ -22,13 +22,12 @@ public class GroupDeletionTests extends TestBase {
   @Test
   public void testGroupDeletion() {
     List<GroupData> before = app.getGroupHelper().getGroupList();
-    app.getGroupHelper().selectGroup(before.size() - 1);
-    app.getGroupHelper().deleteSelectedGroups();
-    app.getGroupHelper().returnToGroupPage();
+    int index = before.size() - 1;
+    app.getGroupHelper().deleteGroup(index);
     List<GroupData> after = app.getGroupHelper().getGroupList();
-    org.junit.Assert.assertEquals(after.size(),before.size() -1);
+    org.junit.Assert.assertEquals(after.size(),before.size() - 1);
 
-    before.remove(before.size() - 1);
+    before.remove(index);
       Assert.assertEquals(after,before);
   }
 
