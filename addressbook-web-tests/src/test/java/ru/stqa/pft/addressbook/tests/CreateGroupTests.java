@@ -23,8 +23,8 @@ public class CreateGroupTests extends TestBase {
     Groups before = app.getGroupHelper().allGroups();
     GroupData group = new GroupData("test22", null, null);
     app.getGroupHelper().createGroup(group);
+    Assert.assertEquals(app.getGroupHelper().getGroupCount(),before.size() +1);
     Groups after = app.getGroupHelper().allGroups();
-    Assert.assertEquals(after.size(),before.size() +1);
 
     //int max = 0;
     //for(GroupData g : after){
@@ -40,6 +40,17 @@ public class CreateGroupTests extends TestBase {
     //before.add(group);
     //Assert.assertEquals(before, after);
     MatcherAssert.assertThat(after, equalTo(before.withAdded(group)));
+  }
+
+  @Test
+  public void testBadCreateGroup() {
+    app.getNavigationHelper().gotoGroup();
+    Groups before = app.getGroupHelper().allGroups();
+    GroupData group = new GroupData("test22'", null, null);
+    app.getGroupHelper().createGroup(group);
+    Assert.assertEquals(app.getGroupHelper().getGroupCount(),before.size());
+    Groups after = app.getGroupHelper().allGroups();
+    MatcherAssert.assertThat(after, equalTo(before));
   }
 
 }
