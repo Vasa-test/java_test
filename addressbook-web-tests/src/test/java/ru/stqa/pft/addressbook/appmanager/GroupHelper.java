@@ -71,6 +71,7 @@ public class GroupHelper extends HelperBase {
   public void deleteGroup(GroupData deletedGroup) {
     selectGroupById(deletedGroup.getId());
     deleteSelectedGroups();
+    groupsCache = null;
     returnToGroupPage();
   }
 
@@ -95,16 +96,21 @@ public class GroupHelper extends HelperBase {
     return groups;
   }
 
+  private Set<GroupData> groupsCache = null;
+
   public Set<GroupData> all() {
-    Set<GroupData> groups = new HashSet<GroupData>();
+    if (groupsCache != null){
+      return groupsCache;
+    }
+    groupsCache = new HashSet<GroupData>();
     List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
     for (WebElement element : elements){
       String name = element.getText();
       int id =Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
       GroupData group = new GroupData(id,name,null,null);
-      groups.add(group);
+      groupsCache.add(group);
     }
-    return groups;
+    return groupsCache;
   }
 
   public Groups allGroups() {
