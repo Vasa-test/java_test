@@ -52,11 +52,22 @@ public class ContactHelper extends HelperBase {
       int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
       String lastname = cells.get(1).getText();
       String firstname = cells.get(2).getText();
-      contacts.add(new ContactData(id,firstname,lastname,null));
+      String[] phones = cells.get(5).getText().split("\n");
+      contacts.add(new ContactData(id,firstname,lastname,null,phones[0],phones[1],phones[2]));
     }
     return contacts;
   }
 
+  public ContactData infoFromEditForm(ContactData contact){
+    initContactModificationById(contact.getId());
+    String firstname = driver.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = driver.findElement(By.name("lastname")).getAttribute("value");
+    String home = driver.findElement(By.name("home")).getAttribute("value");
+    String mobile = driver.findElement(By.name("mobile")).getAttribute("value");
+    String work = driver.findElement(By.name("work")).getAttribute("value");
+    driver.navigate().back();
+    return new ContactData(contact.getId(),firstname,lastname,null,home,mobile,work);
+  }
 
   private void initContactModificationById(int id){
     WebElement checkbox = driver.findElement(By.cssSelector(String.format("input[value='%s']",id)));
