@@ -4,6 +4,9 @@ import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
@@ -20,7 +23,15 @@ public class ContactPhoneTests extends TestBase{
     MatcherAssert.assertThat(contact.getWorkphone(), equalTo(cleaned(contactInfoFormEditForm.getWorkphone())));
   }
 
-  public String cleaned(String phone){
+  public static String cleaned(String phone){
     return phone.replaceAll("\\s","").replaceAll("[-()]","");
+  }
+
+  // функция для склейки номеров в случае если мы получем массив где какойто номер отсутствует
+  private String mergePhones(ContactData contact){
+    return Arrays.asList(contact.getHomephone(),contact.getMobilephone(),contact.getWorkphone())
+            .stream().filter((s -> ! s.equals("")))
+            .map(ContactPhoneTests::cleaned)
+            .collect(Collectors.joining("\n"));
   }
 }
