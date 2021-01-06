@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.model;
 
+import java.io.File;
+
 public class ContactData {
   private int id;
   private String firstname;
@@ -8,9 +10,10 @@ public class ContactData {
   private String homephone;
   private String mobilephone;
   private String workphone;
+  private File photo;
 
-  public ContactData(int id,String firstname,String secondname,String group,
-                     String homephone,String mobilephone,String workphone){
+  public ContactData(int id, String firstname, String secondname, String group,
+                     String homephone, String mobilephone, String workphone){
     this.firstname = firstname;
     this.secondname = secondname;
     this.group = group;
@@ -23,7 +26,6 @@ public class ContactData {
     this.firstname = firstname;
     this.secondname = secondname;
     this.group = group;
-    this.id = 0;
   }
   public String getFirstname(){
     return firstname;
@@ -45,6 +47,15 @@ public class ContactData {
   }
   public String getWorkphone(){
     return workphone;
+  }
+
+  public File getPhoto() {
+    return photo;
+  }
+  // для того чтобы вызвать его как метод через точку после конструктора
+  public ContactData setPhoto(File photo) {
+    this.photo = photo;
+    return this;
   }
 
 }
