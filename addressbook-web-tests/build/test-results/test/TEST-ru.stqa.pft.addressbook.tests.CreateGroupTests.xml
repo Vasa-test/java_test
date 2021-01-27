@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.CreateGroupTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-01-27T15:18:19" hostname="MacBook-Air.local" time="16.779">
+  <properties/>
+  <testcase name="testBadCreateGroup" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.689"/>
+  <testcase name="testCreateGroup[0](name1, header1, footer1)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.518"/>
+  <testcase name="testCreateGroup[1](name2, header2, footer2)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="4.513"/>
+  <testcase name="testCreateGroup[2](name3, header3, footer3)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="5.049"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

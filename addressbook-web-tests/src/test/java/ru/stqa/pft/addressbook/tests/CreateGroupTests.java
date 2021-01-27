@@ -4,41 +4,35 @@ package ru.stqa.pft.addressbook.tests;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.*;
 
 public class CreateGroupTests extends TestBase {
 
-  @Test
-  public void testCreateGroup() {
+  @DataProvider
+  public Iterator<Object[]> validGroups(){
+    List<Object[]> list = new ArrayList<Object[]>();
+    list.add(new Object[]{"name1","header1","footer1"});
+    list.add(new Object[]{"name2","header2","footer2"});
+    list.add(new Object[]{"name3","header3","footer3"});
+    return list.iterator();
+  }
+
+  @Test(dataProvider = "validGroups")
+  public void testCreateGroup(String name,String header,String footer) {
     app.getNavigationHelper().gotoGroup();
     Groups before = app.getGroupHelper().allGroups();
-    GroupData group = new GroupData("test22", null, null);
+    GroupData group = new GroupData(name, header, footer);
     app.getGroupHelper().createGroup(group);
     Assert.assertEquals(app.getGroupHelper().getGroupCount(),before.size() +1);
     Groups after = app.getGroupHelper().allGroups();
-
-    //int max = 0;
-    //for(GroupData g : after){
-      //if(g.getId() > max){
-        //max = g.getId();
-      //}
-    //}
-
-    //group.setId(after.stream().max(((o1, o2) -> Integer.compare(o1.getId(),o2.getId()))).get().getId());
-    //group.setId(after.stream().max((Comparator.comparingInt(GroupData::getId))).get().getId());
-
     group.setId(after.stream().mapToInt(GroupData::getId).max().orElse(0));
-    //before.add(group);
-    //Assert.assertEquals(before, after);
     MatcherAssert.assertThat(after, equalTo(before.withAdded(group)));
   }
 
