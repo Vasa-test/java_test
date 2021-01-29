@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import java.io.*;
 import java.util.*;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -16,11 +17,15 @@ import static org.hamcrest.CoreMatchers.*;
 public class CreateGroupTests extends TestBase {
 
   @DataProvider
-  public Iterator<Object[]> validGroups(){
+  public Iterator<Object[]> validGroups() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    list.add(new Object[]{"name1","header1","footer1"});
-    list.add(new Object[]{"name2","header2","footer2"});
-    list.add(new Object[]{"name3","header3","footer3"});
+    BufferedReader reader = new BufferedReader( new FileReader(new File("src/test/resources/groups.csv")));
+    String line = reader.readLine();
+    while (line != null){
+      String[] split = line.split(";");
+      list.add(new Object[]{split[0],split[1],split[2]});
+      line = reader.readLine();
+    }
     return list.iterator();
   }
 
@@ -36,11 +41,19 @@ public class CreateGroupTests extends TestBase {
     MatcherAssert.assertThat(after, equalTo(before.withAdded(group)));
   }
 
-  @Test
-  public void testBadCreateGroup() {
+  @DataProvider
+  public Iterator<Object[]> novalidGroups(){
+    List<Object[]> list = new ArrayList<Object[]>();
+    list.add(new Object[]{"badname1'","header1","footer1"});
+    list.add(new Object[]{"name2","badheader2'","footer2"});
+    return list.iterator();
+  }
+
+  @Test(dataProvider = "novalidGroups")
+  public void testBadCreateGroup(String name,String header,String footer) {
     app.getNavigationHelper().gotoGroup();
     Groups before = app.getGroupHelper().allGroups();
-    GroupData group = new GroupData("test22'", null, null);
+    GroupData group = new GroupData(name, header, footer);
     app.getGroupHelper().createGroup(group);
     Assert.assertEquals(app.getGroupHelper().getGroupCount(),before.size());
     Groups after = app.getGroupHelper().allGroups();
