@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
 
+import com.thoughtworks.xstream.XStream;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
@@ -11,6 +12,7 @@ import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.*;
 
@@ -18,22 +20,30 @@ public class CreateGroupTests extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> validGroups() throws IOException {
-    List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader( new FileReader(new File("src/test/resources/groups.csv")));
+    // для формата csv
+    //List<Object[]> list = new ArrayList<Object[]>();
+    BufferedReader reader = new BufferedReader( new FileReader(new File("src/test/resources/groups.xml")));
+    String xml = "";
     String line = reader.readLine();
     while (line != null){
-      String[] split = line.split(";");
-      list.add(new Object[]{split[0],split[1],split[2]});
+      xml += line;
+      // для формата csv
+      //String[] split = line.split(";");
+      //list.add(new Object[]{new GroupData(split[0],split[1],split[2])});
       line = reader.readLine();
     }
-    return list.iterator();
+    XStream xstream = new XStream();
+    xstream.processAnnotations(GroupData.class);
+    List<GroupData> groups = (List<GroupData>) xstream.fromXML(xml);
+    return groups.stream().map((groupData) -> new Object[] {groupData}).collect(Collectors.toList()).iterator();
+    // для формата csv
+    //return list.iterator();
   }
 
   @Test(dataProvider = "validGroups")
-  public void testCreateGroup(String name,String header,String footer) {
+  public void testCreateGroup(GroupData group) {
     app.getNavigationHelper().gotoGroup();
     Groups before = app.getGroupHelper().allGroups();
-    GroupData group = new GroupData(name, header, footer);
     app.getGroupHelper().createGroup(group);
     Assert.assertEquals(app.getGroupHelper().getGroupCount(),before.size() +1);
     Groups after = app.getGroupHelper().allGroups();

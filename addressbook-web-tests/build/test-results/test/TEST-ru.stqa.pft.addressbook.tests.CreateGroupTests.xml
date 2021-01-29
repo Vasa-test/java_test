@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.CreateGroupTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-01-29T11:06:18" hostname="MacBook-Air.local" time="16.512">
+<testsuite name="ru.stqa.pft.addressbook.tests.CreateGroupTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-01-29T12:52:50" hostname="MacBook-Air.local" time="28.204">
   <properties/>
-  <testcase name="testBadCreateGroup[0](badname1', header1, footer1)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.343"/>
-  <testcase name="testBadCreateGroup[1](name2, badheader2', footer2)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.017"/>
-  <testcase name="testCreateGroup[0](names, headers, footers)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="2.96"/>
-  <testcase name="testCreateGroup[1](names, headers, footers)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.74"/>
-  <testcase name="testCreateGroup[2](names, headers, footers)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.443"/>
+  <testcase name="testBadCreateGroup[0](badname1', header1, footer1)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="4.326"/>
+  <testcase name="testBadCreateGroup[1](name2, badheader2', footer2)" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.976"/>
+  <testcase name="testCreateGroup[0](GroupData{id='0', name='names'})" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.852"/>
+  <testcase name="testCreateGroup[1](GroupData{id='0', name='names'})" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.905"/>
+  <testcase name="testCreateGroup[2](GroupData{id='0', name='names'})" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.917"/>
+  <testcase name="testCreateGroup[3](GroupData{id='0', name='names'})" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.87"/>
+  <testcase name="testCreateGroup[4](GroupData{id='0', name='names'})" classname="ru.stqa.pft.addressbook.tests.CreateGroupTests" time="3.981"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Security framework of XStream not explicitly initialized, using predefined black list on your own risk.
+]]></system-err>
 </testsuite>
