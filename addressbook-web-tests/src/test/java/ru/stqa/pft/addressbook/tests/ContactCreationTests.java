@@ -12,7 +12,7 @@ public class ContactCreationTests extends TestBase {
     app.getNavigationHelper().gotoHomePage();
     app.getContactHelper().initContactCreation();
     File photo = new File("src/test/resources/stru.png");
-    app.getContactHelper().fillContactForm(new ContactData("test_name2","test_surname2","[none]").setPhoto(photo),true);
+    app.getContactHelper().fillContactForm(new ContactData("test_name33","test_surname33","[none]").setPhoto(photo),true);
     app.getContactHelper().submitContactCreation();
     app.getContactHelper().returnToHomePage();
   }
