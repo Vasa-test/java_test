@@ -2,9 +2,19 @@ apply plugin: 'java'
 repositories {
     mavenCentral()
 }
+// для повторного запуска gradlew cleanTest test
+// для запуска из командной строки для мак ./gradlew testGroups
+task testGroups(type: Test) {
+    useTestNG() {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+}
 
-test {
-    useTestNG()
+// для запуска из командной строки для мак ./gradlew testContacts
+task testContacts(type: Test) {
+    useTestNG() {
+        suites 'src/test/resources/testng-contacts.xml'
+    }
 }
 
 
