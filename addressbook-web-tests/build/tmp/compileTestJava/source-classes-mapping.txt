@@ -32,3 +32,4 @@ ru/stqa/pft/addressbook/tests/ContactCreationTests.java
  ru.stqa.pft.addressbook.tests.ContactCreationTests
 ru/stqa/pft/addressbook/tests/CreateGroupTests.java
  ru.stqa.pft.addressbook.tests.CreateGroupTests
+ ru.stqa.pft.addressbook.tests.CreateGroupTests$1

@@ -1,6 +1,8 @@
 package ru.stqa.pft.addressbook.tests;
 
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
@@ -19,28 +21,48 @@ import static org.hamcrest.CoreMatchers.*;
 public class CreateGroupTests extends TestBase {
 
   @DataProvider
-  public Iterator<Object[]> validGroups() throws IOException {
-    // для формата csv
-    //List<Object[]> list = new ArrayList<Object[]>();
+  public Iterator<Object[]> validGroupsFromJson() throws IOException {
+    BufferedReader reader = new BufferedReader( new FileReader(new File("src/test/resources/groups.json")));
+    String json = "";
+    String line = reader.readLine();
+    while (line != null){
+      json += line;
+      line = reader.readLine();
+    }
+    Gson gson = new Gson();
+    List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType()); // List<GroupData>.class
+    return groups.stream().map((groupData) -> new Object[] {groupData}).collect(Collectors.toList()).iterator();
+  }
+
+  @DataProvider
+  public Iterator<Object[]> validGroupsFromCsv() throws IOException {
+    List<Object[]> list = new ArrayList<Object[]>();
+    BufferedReader reader = new BufferedReader( new FileReader(new File("src/test/resources/groups.csv")));
+    String line = reader.readLine();
+    while (line != null){
+      String[] split = line.split(";");
+      list.add(new Object[]{new GroupData(split[0],split[1],split[2])});
+      line = reader.readLine();
+    }
+    return list.iterator();
+  }
+
+  @DataProvider
+  public Iterator<Object[]> validGroupsFromXml() throws IOException {
     BufferedReader reader = new BufferedReader( new FileReader(new File("src/test/resources/groups.xml")));
     String xml = "";
     String line = reader.readLine();
     while (line != null){
       xml += line;
-      // для формата csv
-      //String[] split = line.split(";");
-      //list.add(new Object[]{new GroupData(split[0],split[1],split[2])});
       line = reader.readLine();
     }
     XStream xstream = new XStream();
     xstream.processAnnotations(GroupData.class);
     List<GroupData> groups = (List<GroupData>) xstream.fromXML(xml);
     return groups.stream().map((groupData) -> new Object[] {groupData}).collect(Collectors.toList()).iterator();
-    // для формата csv
-    //return list.iterator();
   }
 
-  @Test(dataProvider = "validGroups")
+  @Test(dataProvider = "validGroupsFromJson")
   public void testCreateGroup(GroupData group) {
     app.getNavigationHelper().gotoGroup();
     Groups before = app.getGroupHelper().allGroups();
