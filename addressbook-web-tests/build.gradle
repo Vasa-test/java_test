@@ -2,6 +2,11 @@ apply plugin: 'java'
 repositories {
     mavenCentral()
 }
+
+test {
+    useTestNG()
+}
+
 // для повторного запуска gradlew cleanTest test
 // для запуска из командной строки для мак ./gradlew testGroups
 task testGroups(type: Test) {
@@ -35,4 +40,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     // библиотека для логирования 6 занятие 69 урок
     implementation 'ch.qos.logback:logback-classic:1.3.0-alpha5'
+    implementation 'mysql:mysql-connector-java:8.0.23'
 }
