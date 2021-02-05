@@ -1,16 +1,41 @@
 package ru.stqa.pft.addressbook.model;
 
-import java.io.File;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
+import java.io.File;
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
+  @Id
+  @Column(name = "id")
   private int id;
+
+  @Column(name = "firstname")
   private String firstname;
+
+  @Column(name = "lastname")
   private String secondname;
+
+  @Transient
   private String group;
+
+  @Column(name = "home")
+  @Type(type = "text")
   private String homephone;
+
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobilephone;
+
+  @Column(name = "work")
+  @Type(type = "text")
   private String workphone;
+
+  @Transient
   private File photo;
+
+  public ContactData(){}
 
   public ContactData(int id, String firstname, String secondname, String group,
                      String homephone, String mobilephone, String workphone){
