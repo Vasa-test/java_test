@@ -22,6 +22,8 @@ public class GroupModificationTests extends TestBase {
 
   @Test
   public void testGroupModification (){
+    // теперь данные мы получаем из БД и работаем с ними как и раньше
+    // Groups before = app.db().groups();
     List<GroupData> before = app.getGroupHelper().getGroupList();
     int index = before.size() - 1;
     GroupData group = new GroupData(before.get(index).getId(),"test33", "test7", "test7");
